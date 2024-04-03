@@ -67,3 +67,9 @@
     font-family: "Roboto";
     color: red;
 }
+
+@media (max-width: 500px) {
+    .form {
+        width: 98%;
+    }
+}
