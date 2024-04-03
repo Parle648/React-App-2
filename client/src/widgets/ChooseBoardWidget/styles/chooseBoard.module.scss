@@ -1,0 +1,51 @@
+.block {
+    width: 400px;
+    height: 100vh;
+    background-color: aliceblue;
+    transition: .35s;
+    position: relative;
+}
+
+.toggleOpenedBtn {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+
+    cursor: pointer;
+
+    color: #101010;
+    padding: 3px 6px;
+    border-radius: 50%;
+    border: 1px solid #b3b3b3;
+    background-color: transparent;
+
+
+    &:hover {
+        background-color: rgba(196, 199, 201, 0.699);
+    }
+}
+
+.title {
+    font-size: 33px;
+    padding-top: 130px;
+    padding-left: 25px;
+    font-family: "Roboto";
+    color: #101010;
+}
+
+.closedBlock {
+    transition: .35s;
+    margin-left: -385px;
+}
+
+@media (max-width: 700px) {
+    .block {
+        width: 95%;
+        position: fixed;
+        z-index: 9;
+    }
+
+    .closedBlock {
+        margin-left: -90%;
+    }
+}
