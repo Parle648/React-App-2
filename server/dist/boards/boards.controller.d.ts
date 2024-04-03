@@ -14,7 +14,13 @@ export declare class BoardsController {
         error: any;
         boards?: undefined;
     }>;
-    findAll(): string;
+    findAll(): Promise<{
+        status: number;
+        boards: {
+            id: number;
+            name: string;
+        }[];
+    }>;
     update(id: string, updateBoardDto: any): string;
     remove(id: string): string;
 }

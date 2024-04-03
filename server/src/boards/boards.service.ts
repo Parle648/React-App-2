@@ -25,8 +25,10 @@ export class BoardsService {
     }
   }
 
-  findAll() {
-    return `This action returns all boards`;
+  async findAll() {
+    const boards = await this.databaseService.boards.findMany()
+
+    return { status: 200, boards };
   }
 
   update(id: number, updateBoardDto: any) {

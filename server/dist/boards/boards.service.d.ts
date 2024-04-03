@@ -16,7 +16,13 @@ export declare class BoardsService {
         error: any;
         boards?: undefined;
     }>;
-    findAll(): string;
+    findAll(): Promise<{
+        status: number;
+        boards: {
+            id: number;
+            name: string;
+        }[];
+    }>;
     update(id: number, updateBoardDto: any): string;
     remove(id: number): string;
 }

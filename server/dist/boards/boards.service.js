@@ -33,8 +33,9 @@ let BoardsService = class BoardsService {
             return { status: 404, error };
         }
     }
-    findAll() {
-        return `This action returns all boards`;
+    async findAll() {
+        const boards = await this.databaseService.boards.findMany();
+        return { status: 200, boards };
     }
     update(id, updateBoardDto) {
         return `This action updates a #${id} board`;

@@ -27,7 +27,7 @@ const CreateBoardForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(createBoard)} >
+        <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
             <input type="text" {...register('name', {
                 required: 'Enter board name',
             })} />
