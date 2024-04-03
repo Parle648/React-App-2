@@ -1,0 +1,42 @@
+.cartWrapper {
+    position: relative;
+}
+
+.cart {
+    width: 350px;
+    height: 300px;
+    margin-bottom: 15px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: aliceblue;
+
+    cursor: pointer;
+    transition: .35s;
+
+    position: relative;
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 32px 23px rgba(230,230,230,1);
+        -moz-box-shadow: 0px 0px 32px 23px rgba(230,230,230,1);
+        box-shadow: 0px 0px 32px 23px rgba(230,230,230,1);
+    }
+}
+
+.modalContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #838080b4;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 1;
+}
+
+.visible {
+    display: flex;
+}

@@ -1,0 +1,21 @@
+
+.title,
+.error {
+    margin: 0;
+    font-family: "Roboto";
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    height: 30px;
+}
+
+.invalidInput {
+    border: 1px solid red;
+}

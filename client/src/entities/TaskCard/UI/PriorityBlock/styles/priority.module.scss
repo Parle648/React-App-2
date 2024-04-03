@@ -1,0 +1,35 @@
+.priority {
+    width: 35%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: rgb(85, 255, 255);
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+
+    font-family: "Roboto";
+    color: rgba(0, 0, 0, 0.863);
+
+    &::before {
+        content: '';
+
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background-color: rgb(202, 194, 188);
+        margin-right: 20px;
+    }
+}
+
+.low {
+    background-color: rgba(0, 128, 0, 0.7);
+}
+
+.middle {
+    background-color: rgba(255, 166, 0, 0.7);
+}
+
+.top {
+    background-color: rgba(255, 0, 0, 0.7);
+}

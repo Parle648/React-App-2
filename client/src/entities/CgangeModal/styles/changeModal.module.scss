@@ -1,0 +1,35 @@
+.open {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    position: absolute;
+    top: 16px;
+    right: 12px;
+}
+
+.img {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.modal {
+    width: 200px;
+    height: auto;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: absolute;
+
+    right: -170px;
+    top: 50px;
+
+    display: none;
+    z-index: 1;
+}
+
+.modalActive {
+    display: block;
+}

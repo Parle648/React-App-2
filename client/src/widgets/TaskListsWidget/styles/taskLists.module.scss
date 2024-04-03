@@ -1,0 +1,13 @@
+.block {
+    width: 1440px;
+    margin: 0 auto;
+    overflow: scroll;
+
+    display: flex;
+}
+
+@media (max-width: 1440px) {
+    .block {
+        width: 92%;
+    }
+}

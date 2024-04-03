@@ -1,0 +1,26 @@
+.modalBlock {
+    width: 800px;
+    height: 500px;
+    padding: 46px;
+    background-color: azure;
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.inform {
+    width: 300px;
+    position: relative;
+}
+
+.informActivities {
+    margin-top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2 {
+    padding: 0;
+    color: #101010;
+}

@@ -1,0 +1,42 @@
+.open {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    font-family: "Roboto";
+    display: flex;
+    align-items: baseline;
+}
+
+.editIcon {
+    width: 15px;
+    height: 15px;
+    margin: 15px 20px 0px 5px;
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccccccbd;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.openedModal {
+    display: flex;
+}
+
+.changeForm {
+    width: 400px;
+    height: 550px;
+    padding: 24px;
+    background-color: azure;
+    border-radius: 10px;
+}

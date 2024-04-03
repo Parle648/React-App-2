@@ -1,0 +1,39 @@
+.changeInputBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+
+    position: relative;
+}
+
+.sendBtn {
+    width: 150px;
+    height: 35px;
+    color: #fff;
+    font-family: "Roboto";
+    background-color: rgb(28, 44, 87);
+    border: 0;
+    border-radius: 5px;
+
+    transition: .35s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(28, 44, 87, 0.808);
+    }
+}
+
+h2 {
+    padding: 0;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -40px;
+
+    font-family: "Roboto";
+}

@@ -1,0 +1,69 @@
+.open {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-family: "Roboto";
+}
+
+.modalBlock {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ccccccb9;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.visible {
+    display: flex;
+}
+
+.plus {
+    width: 15px;
+    height: 15px;
+    margin: 10px 15px 0px 5px;
+}
+
+.form {
+    width: 350px; 
+    height: 400px;
+    padding: 24px;
+
+    background-color: azure;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 7;
+}
+
+.inputTitle {
+    margin: 0;
+    padding: 0;
+}
+
+.label {
+    position: relative;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -45px;
+    font-size: 15px;
+    font-family: "Roboto";
+    color: red;
+}

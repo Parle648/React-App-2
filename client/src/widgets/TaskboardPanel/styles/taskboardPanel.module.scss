@@ -1,0 +1,34 @@
+.block {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 130px 0 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ttl {
+    color: #101010;
+    font-size: 33px;
+    font-family: "Roboto";
+}
+
+.buttons {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1440px) {
+    .block {
+        width: 92%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buttons {
+        width: 30%;
+    }
+}

@@ -1,0 +1,52 @@
+.block {
+    color: #3f3f3f;
+    font-family: "Roboto";
+    font-size: 18px;
+    
+}
+
+.toggleChoises {
+    width: 90%;
+    height: 30px;
+    margin: 0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: rgb(200, 209, 255);
+    
+    &:hover {
+        background-color: rgb(145, 152, 187);
+    }
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+}
+
+.list {
+    display: none;
+    background-color: #fff;
+    padding: 35px;
+    position: relative;
+    z-index: 2;
+}
+
+.listVisible {
+    display: block;
+}
+
+.listTitle {
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: #3f3f3f;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(106, 190, 255);
+    }
+}

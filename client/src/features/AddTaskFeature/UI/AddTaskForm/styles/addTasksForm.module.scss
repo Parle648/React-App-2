@@ -1,0 +1,32 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccccccc2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9;
+    display: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    padding: 64px 24px;
+    background-color: rgb(219, 237, 252);
+    position: fixed;
+    z-index: 7;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.visible {
+    display: flex;
+}
