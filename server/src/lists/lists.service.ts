@@ -19,6 +19,7 @@ export class ListsService {
     const createList = await this.dataBaseService.lists.create({
       data: {
         list_name: listData.list_name,
+        board_id: 1,
         listActivities: {
           create: [
             action

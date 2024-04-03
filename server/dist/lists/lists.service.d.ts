@@ -21,14 +21,17 @@ export declare class ListsService {
     } & {
         id: number;
         list_name: string;
+        board_id: number;
     }>;
     findAll(): Promise<{
         id: number;
         list_name: string;
+        board_id: number;
     }[]>;
     findOne(id: number): Promise<{
         id: number;
         list_name: string;
+        board_id: number;
     }>;
     update(id: number, updateListDto: {
         listData: Prisma.ListsCreateInput;
@@ -38,6 +41,7 @@ export declare class ListsService {
         lists: {
             id: number;
             list_name: string;
+            board_id: number;
         }[];
     }>;
     remove(id: number, deleteListDto: any): Promise<[{
@@ -51,5 +55,6 @@ export declare class ListsService {
     }, {
         id: number;
         list_name: string;
+        board_id: number;
     }]>;
 }

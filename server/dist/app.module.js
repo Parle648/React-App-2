@@ -15,6 +15,7 @@ const activities_module_1 = require("./activities/activities.module");
 const tasks_module_1 = require("./tasks/tasks.module");
 const lists_module_1 = require("./lists/lists.module");
 const cors_middlewares_1 = require("./middlewares/cors.middlewares");
+const boards_module_1 = require("./boards/boards.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(cors_middlewares_1.CorsMiddleware).forRoutes('*');
@@ -23,7 +24,7 @@ let AppModule = class AppModule {
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [database_module_1.DatabaseModule, activities_module_1.ActivitiesModule, tasks_module_1.TasksModule, lists_module_1.ListsModule],
+        imports: [database_module_1.DatabaseModule, activities_module_1.ActivitiesModule, tasks_module_1.TasksModule, lists_module_1.ListsModule, boards_module_1.BoardsModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

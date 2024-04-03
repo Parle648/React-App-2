@@ -13,9 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Boards {
+  id Int @id @default(autoincrement())
+  name String
+}
+
 model Lists {
   id Int @id @default(autoincrement())
   list_name String
+  board_id Int
 
   listActivities ListActivities[]
 }
