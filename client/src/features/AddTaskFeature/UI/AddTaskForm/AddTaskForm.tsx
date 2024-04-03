@@ -4,6 +4,7 @@ import { CreteTaskFields } from '../../types/taskFormFields';
 import { TaskFormProps } from '../../types/taskFormProps';
 import { DeadlineInput, DescriptionInput, NameInput, PriorityInput, StatusInput } from '../Inputs/Inputs';
 import createTask from '../../helpers/createTask';
+import { useSelector } from 'react-redux';
 
 const AddTaskForm = ({visible, children, list_id}: TaskFormProps) => {
     const {
@@ -15,10 +16,16 @@ const AddTaskForm = ({visible, children, list_id}: TaskFormProps) => {
         reset
     } = useForm<CreteTaskFields>();
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
+
+    console.log(currentBoard.id);
+    
+
     function sendTaskData(taskDto: CreteTaskFields) {
-        createTask(taskDto, list_id);
+        createTask(taskDto, list_id, currentBoard.id);
         reset();
     };
+
     
     return (
         <div className={`${styles.background} ${visible && styles.visible}`}>

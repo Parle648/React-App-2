@@ -9,6 +9,7 @@ export declare class ListsController {
             list_name: string;
             from: string;
             to: string;
+            board_id: number;
             time: Date;
             list_id: number;
         }[];
@@ -17,7 +18,7 @@ export declare class ListsController {
         list_name: string;
         board_id: number;
     }>;
-    findAll(): Promise<{
+    findAll(query: any): Promise<{
         id: number;
         list_name: string;
         board_id: number;
@@ -36,6 +37,7 @@ export declare class ListsController {
         list_name: string;
         from: string;
         to: string;
+        board_id: number;
         time: Date;
         list_id: number;
     }, {

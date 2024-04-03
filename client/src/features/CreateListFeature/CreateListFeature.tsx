@@ -17,9 +17,10 @@ const CreateListFeature = () => {
     } = useForm<createListFormFields>();
 
     const lists = useSelector((state: any) => state.Lists.value)
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
     function createList(data: createListFormFields) {
-        createListRequest(data)
+        createListRequest({...data, board_id: currentBoard.id})
         .then((data: any) => updateList(lists, data.id, data.list_name))
         reset()
     }

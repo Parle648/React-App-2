@@ -43,6 +43,7 @@ model ListActivities {
   list_name String
   from String
   to String
+  board_id Int
   time DateTime @default(now())
 
   list   Lists? @relation(fields: [list_id], references: [id], onDelete: SetNull)
@@ -57,6 +58,7 @@ model TasksActivities {
   to String
   time DateTime @default(now())
   task_property String
+  board_id Int
 
   task          Tasks?   @relation(fields: [task_id], references: [id], onDelete: SetNull)
   task_id       Int?    

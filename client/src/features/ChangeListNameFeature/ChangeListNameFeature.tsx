@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import plus from '../../shared/assets/img/plus.png';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import renameList from './helpers/renameList';
+import CurrentBoard from '../../shared/lib/slices/CurrentBoard';
+import { useSelector } from 'react-redux';
 
 const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false);
@@ -16,8 +18,10 @@ const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string})
         reset
     } = useForm<{list_name: string}>()
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
+
     function sibmitChanges(data: any) {
-        renameList(id, list_name, data.list_name)
+        renameList(id, list_name, data.list_name, currentBoard.id)
         reset();
         setVisible();
     }

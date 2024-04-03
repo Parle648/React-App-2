@@ -151,11 +151,12 @@ export class TasksService {
 
       await this.databaseService.tasksActivities.create({
         data: {
-          "activity_type": "deleteTask",
-          "task_name": taskDto.task_name,
-          "from": "",
-          "to": taskDto.task_name,
-          task_property: ''
+          activity_type: "deleteTask",
+          task_name: taskDto.task_name,
+          from: "",
+          to: taskDto.task_name,
+          task_property: '',
+          board_id: 1
         }
       })
 

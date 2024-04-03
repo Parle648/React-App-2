@@ -3,5 +3,6 @@ export type MoveTaskRequestDto = {
     new_list_name: string, 
     old_list_name: string, 
     list_id: number,
-    task_name: string
+    task_name: string,
+    board_id: number
 }

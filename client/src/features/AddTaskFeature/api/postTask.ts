@@ -1,6 +1,6 @@
 // import { createListFormFields } from "../types/createListFormProps";
 
-export default function createTaskRequest(data: any, list_id: number) {
+export default function createTaskRequest(data: any, list_id: number, board_id: number) {
     return new Promise((resolve, reject) => {
         try {
             resolve(fetch('http://localhost:3001/tasks/', {
@@ -19,7 +19,8 @@ export default function createTaskRequest(data: any, list_id: number) {
                         from: '', 
                         to: data.name, 
                         task_name: data.name,
-                        task_property: ''
+                        task_property: '',
+                        board_id: +board_id
                     }
                 })
             }))

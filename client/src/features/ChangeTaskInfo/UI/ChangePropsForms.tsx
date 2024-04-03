@@ -2,6 +2,7 @@ import changeTaskProperties from '../api/changeTaskProps';
 import styles from './styles/changePropsForm.module.scss';
 import { useForm } from "react-hook-form"
 import updateTasks from '../helpers/changeName';
+import { useSelector } from 'react-redux';
 
 export function ChangeNameForm({task_id, task_name, old_value}: {task_id: number, task_name: string, old_value: string}) {
     const {
@@ -12,13 +13,16 @@ export function ChangeNameForm({task_id, task_name, old_value}: {task_id: number
         }
     } = useForm<{name: string}>();
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value);
+
     function updateTaskName(data: {name: string}) {
         changeTaskProperties({
             id: task_id, 
             name: task_name, 
             property_old: old_value, 
             property_new: data.name, 
-            property_name: 'name'
+            property_name: 'name',
+            board_id: currentBoard.id
         })
         .then(responseData => updateTasks(responseData.tasks));
     }
@@ -50,13 +54,16 @@ export function ChangeDeadlineForm({task_id, task_name, old_value}: {task_id: nu
         }
     } = useForm<{deadline: string}>();
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value);
+
     function updateTaskDeadline(data: {deadline: string}) {
         changeTaskProperties({
             id: task_id, 
             name: task_name, 
             property_old: old_value, 
             property_new: new Date(data.deadline), 
-            property_name: 'deadline'
+            property_name: 'deadline',
+            board_id: currentBoard.id
         })
         .then(responseData => updateTasks(responseData.tasks));
     }
@@ -83,13 +90,16 @@ export function ChangeDescryptionForm({task_id, task_name, old_value}: {task_id:
         }
     } = useForm<{descryption: string}>();
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value);
+
     function updateTaskDescription(data: {descryption: string}) {
         changeTaskProperties({
             id: task_id, 
             name: task_name, 
             property_old: `${old_value}`, 
             property_new: data.descryption, 
-            property_name: 'description'
+            property_name: 'description',
+            board_id: currentBoard.id
         })
         .then(responseData => updateTasks(responseData.tasks));
     }
@@ -125,6 +135,8 @@ export function ChangePriorityForm({task_id, task_name, old_value}: {task_id: nu
         }
     } = useForm<{priority: string}>();
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value);
+
     function updateTaskPriority(data: {priority: string}) {
         if (data.priority !== old_value) {
             changeTaskProperties({
@@ -132,7 +144,8 @@ export function ChangePriorityForm({task_id, task_name, old_value}: {task_id: nu
                 name: task_name, 
                 property_old: old_value, 
                 property_new: data.priority, 
-                property_name: 'priority'
+                property_name: 'priority',
+                board_id: currentBoard.id
             })
             .then(responseData => updateTasks(responseData.tasks));
         }

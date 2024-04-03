@@ -19,7 +19,7 @@ export class ListsService {
     const createList = await this.dataBaseService.lists.create({
       data: {
         list_name: listData.list_name,
-        board_id: 1,
+        board_id: listData.board_id,
         listActivities: {
           create: [
             action
@@ -34,9 +34,17 @@ export class ListsService {
     return createList
   }
 
-  async findAll() {
+  async findAll(query) {
     this.logger.log(`User get all lists`)
-    return this.dataBaseService.lists.findMany();
+    if (+query.board_id) {
+      return this.dataBaseService.lists.findMany({
+        where: {
+          board_id: +query.board_id
+        }
+      });
+    } else {
+      return this.dataBaseService.lists.findMany();
+    }
   }
 
   async findOne(id: number) {
@@ -86,6 +94,7 @@ export class ListsService {
         "list_name": deleteListDto.list_name,
         "from": "",
         "to": "Important",
+        board_id: 1
       }
     })
     const deletelist = this.dataBaseService.lists.delete({

@@ -23,8 +23,8 @@ let ListsController = class ListsController {
     create(createListDto) {
         return this.listsService.create(createListDto);
     }
-    findAll() {
-        return this.listsService.findAll();
+    findAll(query) {
+        return this.listsService.findAll(query);
     }
     update(id, updateListDto) {
         return this.listsService.update(+id, updateListDto);
@@ -43,8 +43,9 @@ __decorate([
 ], ListsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ListsController.prototype, "findAll", null);
 __decorate([

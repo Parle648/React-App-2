@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } from '@nestjs/common';
 import { ListsService } from './lists.service';
 import { PublicGuard } from 'src/guards/publicGuard';
 
@@ -13,8 +13,8 @@ export class ListsController {
   }
 
   @Get()
-  findAll() {
-    return this.listsService.findAll();
+  findAll(@Query() query) {
+    return this.listsService.findAll(query);
   }
 
   @Patch(':id')
