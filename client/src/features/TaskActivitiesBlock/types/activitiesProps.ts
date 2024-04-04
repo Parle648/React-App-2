@@ -3,5 +3,6 @@ export type ActivitiesProps = {
     from: string,
     to: string,
     activity_type: string,
-    task_name: string
+    task_name: string,
+    time: string
 }

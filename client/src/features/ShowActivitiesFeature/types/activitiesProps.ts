@@ -4,5 +4,6 @@ export type ActivitiesProps = {
     to: string,
     activity_type: string,
     task_name: string,
-    list_name: string
+    list_name: string,
+    time: string
 }

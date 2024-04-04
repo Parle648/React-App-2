@@ -24,28 +24,30 @@ const ActivitiesBlock = ({children}: {children: any}) => {
     return (
         <div className={styles.block}>
             <div className={styles.innerBlock}>
-                <div className={styles.header}>History</div>
+                <h2 className={styles.header}>History</h2>
                 {children}
-                {activities.map(({from, to, activity_type, task_name, list_name, task_property}: ActivitiesProps) => {
-                    switch (activity_type) {
-                        case 'createList':
-                            return <CreateListMessage to={to} />
-                        case 'createTask':
-                            return <CreateTaskMessage to={to} />
-                        case 'renameList':
-                            return <RenameListMessage from={from} to={to} />
-                        case 'movetask':
-                            return <MoveTaskMessage task_name={task_name} from={from} to={to} />
-                        case 'changeTask':
-                            return <ChangeTaskMessage task_name={task_name} from={from} to={to} property={task_property} />
-                        case 'deleteList':
-                            return <DeletelistMessage list_name={list_name} />
-                        case 'deleteTask':
-                            return <DeleteTaskMessage task_name={task_name} />
-                        default:
-                            break;
-                    }
-                })}
+                <div className='pl-4 pr-4'>
+                    {activities.map(({from, to, activity_type, task_name, list_name, task_property, time}: ActivitiesProps) => {
+                        switch (activity_type) {
+                            case 'createList':
+                                return <CreateListMessage to={to} time={time} />
+                            case 'createTask':
+                                return <CreateTaskMessage to={to} time={time} />
+                            case 'renameList':
+                                return <RenameListMessage from={from} to={to} time={time} />
+                            case 'movetask':
+                                return <MoveTaskMessage task_name={task_name} from={from} to={to} time={time} />
+                            case 'changeTask':
+                                return <ChangeTaskMessage task_name={task_name} from={from} to={to} property={task_property} time={time} />
+                            case 'deleteList':
+                                return <DeletelistMessage list_name={list_name} time={time} />
+                            case 'deleteTask':
+                                return <DeleteTaskMessage task_name={task_name} time={time} />
+                            default:
+                                break;
+                        }
+                    })}
+                </div>
             </div>
         </div>
     );
