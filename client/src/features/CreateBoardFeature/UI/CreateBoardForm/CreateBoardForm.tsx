@@ -7,7 +7,7 @@ type CreateBoardFields = {
     name: string
 }
 
-const CreateBoardForm = () => {
+const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
 
     const {
         register,
@@ -27,12 +27,15 @@ const CreateBoardForm = () => {
     }
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
-            <input type="text" {...register('name', {
-                required: 'Enter board name',
-            })} />
-            <input className={styles.sendBtn} type="submit" />
-        </form>
+        <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 fixed top-0 opacity-50 z-10'>
+            <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
+                <button onClick={() => setIsVisible()}>X</button>
+                <input type="text" {...register('name', {
+                    required: 'Enter board name',
+                })} />
+                <input className={styles.sendBtn} type="submit" />
+            </form>
+        </div>
     );
 };
 

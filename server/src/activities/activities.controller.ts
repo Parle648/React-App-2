@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import { ActivitiesService } from './activities.service';
 import { PublicGuard } from 'src/guards/publicGuard';
 
@@ -8,8 +8,8 @@ export class ActivitiesController {
   constructor(private readonly activitiesService: ActivitiesService) {}
 
   @Get()
-  findAll() {
-    return this.activitiesService.findAll();
+  findAll(@Query('board_id') board_id: number) {
+    return this.activitiesService.findAll(board_id);
   }
 
   @Get(':id')

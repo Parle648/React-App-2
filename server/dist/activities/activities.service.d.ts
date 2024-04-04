@@ -16,7 +16,7 @@ export declare class ActivitiesService {
         board_id: number;
         task_id: number;
     }>;
-    findAll(): Promise<[{
+    findAll(board_id: number): Promise<[{
         id: number;
         activity_type: string;
         task_name: string;

@@ -9,12 +9,15 @@ import ChangeTaskMessage from '../ChangeTaskMessage/ChangeTaskMessage';
 import DeletelistMessage from '../DeleteListMessage/DeleteListMessage';
 import DeleteTaskMessage from '../DeleteTaskMessage/DeleteTaskMessage';
 import { ActivitiesProps } from '../../types/activitiesProps';
+import { useSelector } from 'react-redux';
 
 const ActivitiesBlock = ({children}: {children: any}) => {
     const [activities, setActivities] = useState([]);
     
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
+
     useEffect(() => {
-        getActivities()
+        getActivities(currentBoard.id)
         .then(data => setActivities(data.flat().sort((a: any, b: any) => Date.parse(a.time) - Date.parse(b.time))))
     }, [])
 
