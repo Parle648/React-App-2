@@ -21,7 +21,10 @@ const DeleteTaskFeature = () => {
                         X
                     </button>
                     You really want to delete this task?
-                    <button className={styles.deleteBtn} onClick={() => deleteTask(taskContext?.props.id, taskContext?.props.name)}>delete</button>
+                    <button className={styles.deleteBtn} onClick={() => {
+                        deleteTask(taskContext?.props.id, taskContext?.props.name);
+                        setVisible();
+                        }}>delete</button>
                 </div>
             </div>
         </>

@@ -35,3 +35,9 @@ h2 {
     padding-left: 24px;
     font-family: "Roboto";
 }
+
+@media (max-width: 550px) {
+    .innerBlock {
+        width: 92%;
+    }
+}

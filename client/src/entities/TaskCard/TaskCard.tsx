@@ -16,7 +16,7 @@ const TaskCart = (taskProperties: TaskCartProps) => {
             props: taskProperties
         }}>
             <div className={styles.cartWrapper}>
-                <div className={styles.cart} onClick={() => toggleVisible()}>
+                <div className={styles.cart} id='openTaskBtn' onClick={() => toggleVisible()}>
                     <TaskCardPreview />
                 </div>
                 <div >
@@ -26,7 +26,7 @@ const TaskCart = (taskProperties: TaskCartProps) => {
                     </ChangeModal>
                     <div className={`${styles.modalContainer} ${isVisible && styles.visible}`}>
                         <TaskCardFullInform visible={isVisible}> 
-                            <button onClick={() => toggleVisible()}>X</button>
+                            <button id='closeTaskModal' onClick={() => toggleVisible()}>X</button>
                         </TaskCardFullInform>
                     </div>
                 </div>

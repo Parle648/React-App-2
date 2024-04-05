@@ -7,8 +7,8 @@ const ChangeModal = ({children}: ChangeModalProps) => {
     const [visible, setVisible] = useToggle(false)
 
     return (
-        <div className={styles.block}>
-            <button className={styles.open} onClick={() => setVisible()}>
+        <div className={styles.block} >
+            <button className={styles.open} onClick={() => setVisible()} >
                 <img className={styles.img} src={menu} alt="menu" />
             </button>
             <div className={`${styles.modal} ${visible && styles.modalActive}`}>

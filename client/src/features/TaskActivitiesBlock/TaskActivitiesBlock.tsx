@@ -22,20 +22,22 @@ const TaskActivitiesBlock = ({id}: {id: number}) => {
     return (
         <div className={styles.block}>
                 <div className={styles.header}>Task history</div>
-               {activities.map(({from, to, activity_type, task_name, task_property, time}: ActivitiesProps) => {
-                    switch (activity_type) {
-                        case 'createTask':
-                            return <CreateTaskMessage to={to} time={time} />
-                        case 'movetask': 
-                            return <MoveTaskMessage task_name={task_name} from={from} to={to} time={time} />
-                        case 'changeTask':
-                            return <ChangeTaskMessage task_name={task_name} from={from} to={to} property={task_property} time={time} />
-                        case 'deleteTask':
-                            return <DeleteTaskMessage task_name={task_name} time={time} />
-                        default:
-                            break;
-                    }
-                })}
+               <div className='p-4 overflow-auto h-96'>
+                   {activities.map(({from, to, activity_type, task_name, task_property, time}: ActivitiesProps) => {
+                        switch (activity_type) {
+                            case 'createTask':
+                                return <CreateTaskMessage to={to} time={time} />
+                            case 'movetask': 
+                                return <MoveTaskMessage task_name={task_name} from={from} to={to} time={time} />
+                            case 'changeTask':
+                                return <ChangeTaskMessage task_name={task_name} from={from} to={to} property={task_property} time={time} />
+                            case 'deleteTask':
+                                return <DeleteTaskMessage task_name={task_name} time={time} />
+                            default:
+                                break;
+                        }
+                    })}
+               </div>
         </div>
     );
 };

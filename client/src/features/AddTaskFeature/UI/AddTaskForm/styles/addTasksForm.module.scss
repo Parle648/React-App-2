@@ -30,3 +30,9 @@
 .visible {
     display: flex;
 }
+
+@media (max-width: 600px) {
+    .form {
+        width: 80%;
+    }
+}

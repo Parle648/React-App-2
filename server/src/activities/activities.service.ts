@@ -1,4 +1,4 @@
-import { Injectable, Logger, createParamDecorator } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 

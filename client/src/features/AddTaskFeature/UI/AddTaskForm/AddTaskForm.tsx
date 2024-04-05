@@ -6,7 +6,7 @@ import { DeadlineInput, DescriptionInput, NameInput, PriorityInput, StatusInput 
 import createTask from '../../helpers/createTask';
 import { useSelector } from 'react-redux';
 
-const AddTaskForm = ({visible, children, list_id}: TaskFormProps) => {
+const AddTaskForm = ({visible, children, list_id, setIsVisible}: TaskFormProps) => {
     const {
         register,
         handleSubmit,
@@ -18,15 +18,12 @@ const AddTaskForm = ({visible, children, list_id}: TaskFormProps) => {
 
     const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
-    console.log(currentBoard.id);
-    
-
     function sendTaskData(taskDto: CreteTaskFields) {
         createTask(taskDto, list_id, currentBoard.id);
+        setIsVisible();
         reset();
     };
 
-    
     return (
         <div className={`${styles.background} ${visible && styles.visible}`}>
             <form className={styles.form} onSubmit={handleSubmit(sendTaskData)}>

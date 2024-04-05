@@ -19,13 +19,14 @@ const CreateListFeature = () => {
     const lists = useSelector((state: any) => state.Lists.value)
     const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
+    const [visible, setVisible] = useToggle(false);
+
     function createList(data: createListFormFields) {
         createListRequest({...data, board_id: currentBoard.id})
-        .then((data: any) => updateList(lists, data.id, data.list_name))
-        reset()
+        .then((data: any) => updateList(lists, data.id, data.list_name));
+        reset();
+        setVisible();
     }
-
-    const [visible, setVisible] = useToggle(false);
 
     return (
         <div className={styles.block}>

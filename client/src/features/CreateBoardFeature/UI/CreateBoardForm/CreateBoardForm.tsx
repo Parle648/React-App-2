@@ -21,13 +21,14 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
     function createBoard(data: CreateBoardFields) {
         createBoardRequest(data)
         .then((responseDto: any) => {
-            updateBoards(responseDto.boards)
+            updateBoards(responseDto.boards);
+            setIsVisible();
             reset();
         })
     }
 
     return (
-        <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 fixed top-0 opacity-50 z-10'>
+        <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 fixed top-0 z-10'>
             <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
                 <button onClick={() => setIsVisible()}>X</button>
                 <input type="text" {...register('name', {

@@ -11,6 +11,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9;
     background-color: #ccccccb9;
 
     display: none;
@@ -70,6 +71,6 @@
 
 @media (max-width: 500px) {
     .form {
-        width: 98%;
+        width: 80%;
     }
 }
