@@ -26,7 +26,7 @@ const ActivitiesBlock = ({children}: {children: any}) => {
             <div className={styles.innerBlock}>
                 <h2 className={styles.header}>History</h2>
                 {children}
-                <div className='pl-4 pr-4'>
+                <div className='pl-4 pr-4 h-full overflow-auto'>
                     {activities.map(({from, to, activity_type, task_name, list_name, task_property, time}: ActivitiesProps) => {
                         switch (activity_type) {
                             case 'createList':

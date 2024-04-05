@@ -28,7 +28,7 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
     }
 
     return (
-        <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 fixed top-0 z-10'>
+        <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 bg-opacity-50 fixed top-0 z-10'>
             <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
                 <button onClick={() => setIsVisible()}>X</button>
                 <input type="text" {...register('name', {
