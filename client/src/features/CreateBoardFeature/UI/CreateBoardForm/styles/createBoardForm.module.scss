@@ -14,6 +14,31 @@
     align-items: flex-start;
 }
 
+.close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.title {
+    color: #101010;
+
+    font-family: "Roboto";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 40px;
+    padding: 0px 15px;
+    font-size: 16px;
+    font-family: "Roboto";
+    display: block;
+    outline: none;
+}
+
 .sendBtn {
     background-color: rgb(200, 209, 255);
     border: 0;
@@ -25,6 +50,24 @@
     cursor: pointer;
 
     &:hover {
-        background-color: rgb(200, 209, 255, 0.7);
+        background-color: rgb(155, 172, 253);
+    }
+}
+
+@media (max-width: 800px) {
+    .form {
+        width: 80%;
+        height: auto;
+        padding: 18px;
+        border-radius: 5px;
+    }
+
+    .close {
+        top: 12px;
+        right: 12px;        
+    }
+
+    .title {
+        font-size: 16px;
     }
 }

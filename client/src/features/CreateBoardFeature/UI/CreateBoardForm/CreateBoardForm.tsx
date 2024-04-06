@@ -30,8 +30,9 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
     return (
         <div className='flex items-center justify-center w-screen h-lvh h-screen bg-slate-600 bg-opacity-50 fixed top-0 z-10'>
             <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
-                <button onClick={() => setIsVisible()}>X</button>
-                <input type="text" {...register('name', {
+                <button className={styles.close} onClick={() => setIsVisible()}>X</button>
+                <h2 className={styles.title}>Enter board name</h2>
+                <input className={styles.input} type="text" {...register('name', {
                     required: 'Enter board name',
                 })} />
                 <input className={styles.sendBtn} type="submit" />
