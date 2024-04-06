@@ -1,0 +1,64 @@
+.button {
+    background-color: rgb(200, 209, 255);
+    border: 0;
+    border-radius: 5px;
+    font-family: "Roboto";
+    cursor: pointer;
+
+    font-size: 18px;
+
+    padding: .3em 1.5em;
+
+    &:hover {
+        background-color: rgb(145, 152, 187);
+    }
+}
+
+.dashed {
+    color: #5f5e5e;
+    border: 1.5px dashed #ccc;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-left: 25px;
+    font-family: "Roboto";
+    font-size: 16px;
+    transition: 0.35s;
+
+    padding: .3em 3.5em;
+
+    &:hover {
+        background-color: azure;
+    }
+} 
+
+.delete {
+    border-radius: 10px;
+    margin-left: 25px;
+    font-family: "Roboto";
+    font-size: 16px;
+    transition: 0.35s;
+    border-radius: 5px;
+
+    color: red;
+
+    padding: .3em 3.5em;
+} 
+
+.create {
+    padding: .3em 3.5em;
+} 
+
+.modify {
+    color: #fff;
+    font-family: "Roboto";
+    background-color: rgb(28, 44, 87);
+    border: 0;
+    border-radius: 5px;
+
+    transition: .35s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(28, 44, 87, 0.808);
+    }
+}

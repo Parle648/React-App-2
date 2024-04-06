@@ -27,20 +27,20 @@ const ActivitiesBlock = ({children}: {children: any}) => {
                 <h2 className={styles.header}>History</h2>
                 {children}
                 <div className='pl-4 pr-4 h-full overflow-auto'>
-                    {activities.map(({from, to, activity_type, task_name, list_name, task_property, time}: ActivitiesProps) => {
+                    {activities.map(({from, to, activity_type, task_name, list_name, task_property, time, id}: ActivitiesProps) => {
                         switch (activity_type) {
                             case 'createList':
-                                return <CreateListMessage to={to} time={time} />
+                                return <CreateListMessage key={id} to={to} time={time} />
                             case 'createTask':
-                                return <CreateTaskMessage to={to} time={time} />
+                                return <CreateTaskMessage key={id} to={to} time={time} />
                             case 'renameList':
-                                return <RenameListMessage from={from} to={to} time={time} />
+                                return <RenameListMessage key={id} from={from} to={to} time={time} />
                             case 'movetask':
-                                return <MoveTaskMessage task_name={task_name} from={from} to={to} time={time} />
+                                return <MoveTaskMessage key={id} task_name={task_name} from={from} to={to} time={time} />
                             case 'changeTask':
-                                return <ChangeTaskMessage task_name={task_name} from={from} to={to} property={task_property} time={time} />
+                                return <ChangeTaskMessage key={id} task_name={task_name} from={from} to={to} property={task_property} time={time} />
                             case 'deleteList':
-                                return <DeletelistMessage list_name={list_name} time={time} />
+                                return <DeletelistMessage key={id} list_name={list_name} time={time} />
                             case 'deleteTask':
                                 return <DeleteTaskMessage task_name={task_name} time={time} />
                             default:
