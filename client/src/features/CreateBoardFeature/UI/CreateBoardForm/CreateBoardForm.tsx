@@ -19,8 +19,6 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
     } = useForm<CreateBoardFields>();
 
     function createBoard(data: CreateBoardFields) {
-        console.log(data);
-        
         createBoardRequest(data)
         .then((responseDto: any) => {
             updateBoards(responseDto.boards);

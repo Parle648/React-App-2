@@ -1,4 +1,5 @@
 export type ActivitiesProps = {
+    id: number,
     task_property: string,
     from: string,
     to: string,

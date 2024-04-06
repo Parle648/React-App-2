@@ -7,7 +7,6 @@ import styles from './styles/deleteBoard.module.scss';
 const DeleteBoard = ({current_board, board_id, current_board_id}: {current_board: string | undefined, board_id: number, current_board_id: number}) => {
     function deleteBoard(event: any) {
         event.stopPropagation();
-        console.log(current_board, board_id);
         deleteBoardRequest(board_id)
         .then((data: any) => {
             if (data.status === 200) {
