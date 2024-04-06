@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './styles/chooseBoard.module.scss';
 import getBoardsRequest from './api/getBoardsRequest';
 import updateBoards from './helpers/updateBoards';
 import updateCurrentBoard from './helpers/updateCurrentBoard';
+import ChangeModal from '../../entities/CgangeModal/ChangeModal';
+import DeleteBoard from '../DeleteBoard/DeleteBoard';
 
 const ChooseBoard = () => {
     const boards = useSelector((state: any) => state.Boards.value);
@@ -21,7 +23,12 @@ const ChooseBoard = () => {
                     className={`${styles.board} pl-4 ${board.id === currentBoard.id && 'bg-slate-600 p-2 pl-4 text-cyan-50'}`} 
                     key={board.id} 
                     data-id={board.id} 
-                    onClick={() => updateCurrentBoard({id: board.id, name: board.name})} >{board.name}</h2>
+                    onClick={() => updateCurrentBoard({id: board.id, name: board.name})} >
+                        {board.name} 
+                        <ChangeModal>
+                            <DeleteBoard board_id={board.id} current_board={currentBoard.name} current_board_id={currentBoard.id} />
+                        </ChangeModal> 
+                    </h2>
             })}
         </div>
     );

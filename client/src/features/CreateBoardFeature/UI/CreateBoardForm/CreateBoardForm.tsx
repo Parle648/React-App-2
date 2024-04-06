@@ -19,6 +19,8 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
     } = useForm<CreateBoardFields>();
 
     function createBoard(data: CreateBoardFields) {
+        console.log(data);
+        
         createBoardRequest(data)
         .then((responseDto: any) => {
             updateBoards(responseDto.boards);
@@ -32,10 +34,11 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
             <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
                 <button className={styles.close} onClick={() => setIsVisible()}>X</button>
                 <h2 className={styles.title}>Enter board name</h2>
-                <input className={styles.input} type="text" {...register('name', {
+                <input className={styles.input} {...register('name', {
                     required: 'Enter board name',
                 })} />
-                <input className={styles.sendBtn} type="submit" />
+                <span>{errors.name && `${errors.name.message}`}</span>
+                <button className={styles.sendBtn} type="submit">Отправить запрос</button>
             </form>
         </div>
     );

@@ -8,7 +8,10 @@ const ChangeModal = ({children}: ChangeModalProps) => {
 
     return (
         <div className={styles.block} >
-            <button className={styles.open} onClick={() => setVisible()} >
+            <button className={styles.open} onClick={(event) => {
+                event.stopPropagation(); 
+                setVisible();
+            }} >
                 <img className={styles.img} src={menu} alt="menu" />
             </button>
             <div className={`${styles.modal} ${visible && styles.modalActive}`}>

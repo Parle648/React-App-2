@@ -40,8 +40,20 @@ let BoardsService = class BoardsService {
     update(id, updateBoardDto) {
         return `This action updates a #${id} board`;
     }
-    remove(id) {
-        return `This action removes a #${id} board`;
+    async remove(id) {
+        try {
+            const board = await this.databaseService.boards.delete({
+                where: {
+                    id: +id
+                }
+            });
+            const boards = await this.databaseService.boards.findMany();
+            this.logger.log(`User delete board with id=${id}`);
+            return { status: 200, boards };
+        }
+        catch (error) {
+            return { status: 404, error };
+        }
     }
 };
 exports.BoardsService = BoardsService;

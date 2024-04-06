@@ -22,5 +22,16 @@ export declare class BoardsController {
         }[];
     }>;
     update(id: string, updateBoardDto: any): string;
-    remove(id: string): string;
+    remove(id: string): Promise<{
+        status: number;
+        boards: {
+            id: number;
+            name: string;
+        }[];
+        error?: undefined;
+    } | {
+        status: number;
+        error: any;
+        boards?: undefined;
+    }>;
 }
