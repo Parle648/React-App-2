@@ -3,6 +3,7 @@ import styles from './styles/changePropsForm.module.scss';
 import { useForm } from "react-hook-form"
 import updateTasks from '../helpers/changeName';
 import { useSelector } from 'react-redux';
+import Button from '../../../shared/UI/Button/Button';
 
 export function ChangeNameForm({task_id, task_name, old_value}: {task_id: number, task_name: string, old_value: string}) {
     const {
@@ -39,7 +40,7 @@ export function ChangeNameForm({task_id, task_name, old_value}: {task_id: number
                     }
                 })} />
                 {errors?.name && <h4 className={styles.error}>{errors.name.message}</h4>}
-                <input className={styles.sendBtn}  type="submit" value="Change name" />
+                <Button width={150} handleFunction={undefined} type='submit' style='modify'>Change name</Button>
             </label>
         </form>
     )
@@ -75,7 +76,7 @@ export function ChangeDeadlineForm({task_id, task_name, old_value}: {task_id: nu
                 <input type="date" {...register('deadline', {
                     required: true
                 })} />
-                <input className={styles.sendBtn}  type="submit" value="Change date" />
+                <Button width={150} handleFunction={undefined} type='submit' style='modify'>Change date</Button>
             </label>
         </form>
     )
@@ -120,7 +121,7 @@ export function ChangeDescryptionForm({task_id, task_name, old_value}: {task_id:
                     }
                 })} />
                 {errors?.descryption && <h4 className={styles.error}>{errors.descryption.message}</h4>}
-                <input className={styles.sendBtn}  type="submit" value="Change descryption" />
+                <Button width={150} handleFunction={undefined} type='submit' style='modify'>Change descr</Button>
             </label>
         </form>
     )
@@ -166,7 +167,7 @@ export function ChangePriorityForm({task_id, task_name, old_value}: {task_id: nu
                     <option value="middle">middle</option>
                     <option value="top">top</option>
                 </select>
-                <input className={styles.sendBtn} type="submit" value="Change priority" />
+                <Button width={150} handleFunction={undefined} type='submit' style='modify'>Change priority</Button>
             </label>
         </form>
     )

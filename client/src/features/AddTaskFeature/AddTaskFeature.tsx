@@ -2,15 +2,19 @@ import styles from './styles/addCartBtn.module.scss';
 import { AddTaskProps } from './types/addTaskProps';
 import AddTaskForm from './UI/AddTaskForm/AddTaskForm';
 import useToggle from '../../shared/lib/hooks/useToggle';
+import Button from '../../shared/UI/Button/Button';
 
 const AddTaskFeature = ({list_id}: AddTaskProps) => {
     const [isVisible, setIsVisible] = useToggle(false);
 
     return (
         <>
-            <button className={styles.open} onClick={() => setIsVisible()}>
+            <Button handleFunction={setIsVisible} style='dashed' width={290}>
                 + Add new Task
-            </button>
+            </Button>
+            {/* <button className={styles.open} onClick={() => setIsVisible()}>
+                + Add new Task
+            </button> */}
             <AddTaskForm 
                 setIsVisible={setIsVisible}
                 visible={isVisible}

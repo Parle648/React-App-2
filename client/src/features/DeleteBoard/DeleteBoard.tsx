@@ -1,3 +1,4 @@
+import Button from '../../shared/UI/Button/Button';
 import deleteIcon from '../../shared/assets/img/delete-icon.png';
 import deleteBoardRequest from './api/deleteBoardRequest';
 import updateBoards from './helpers/updateBoards';

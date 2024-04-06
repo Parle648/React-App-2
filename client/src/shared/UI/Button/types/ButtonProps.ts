@@ -1,9 +1,9 @@
-import { MouseEventHandler } from "react"
+import { MouseEventHandler, ReactElement } from "react"
 
 export type ButtonProps = {
-    children?: string, 
+    children?: string | ReactElement, 
     width?: number, 
-    handleFunction: MouseEventHandler<HTMLButtonElement>, 
+    handleFunction: MouseEventHandler<HTMLButtonElement> | any, 
     type?: 'submit', 
     style?: 'dashed' | 'delete' | 'create' | 'modify'
 }

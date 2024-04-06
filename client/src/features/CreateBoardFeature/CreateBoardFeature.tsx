@@ -1,15 +1,15 @@
+import Button from '../../shared/UI/Button/Button';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import CreateBoardForm from './UI/CreateBoardForm/CreateBoardForm';
-import styles from './styles/createBoard.module.scss';
 
 const CreateBoardFeature = () => {
     const [isVisible, setIsVisible] = useToggle(false);
 
     return (
         <>
-            <button className={styles.open} onClick={setIsVisible} >
-                Create Board
-            </button>
+            <div className='m-6'>
+                <Button handleFunction={setIsVisible} style='dashed'>Create Board</Button>
+            </div>
             {isVisible && <CreateBoardForm setIsVisible={setIsVisible} />}
             
         </>

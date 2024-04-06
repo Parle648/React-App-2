@@ -5,6 +5,7 @@ import useToggle from '../../shared/lib/hooks/useToggle';
 import renameList from './helpers/renameList';
 import CurrentBoard from '../../shared/lib/slices/CurrentBoard';
 import { useSelector } from 'react-redux';
+import Button from '../../shared/UI/Button/Button';
 
 const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false);
@@ -46,7 +47,7 @@ const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string})
                         {errors.list_name && <h4 className={styles.errorMessage}>{errors.list_name.message}</h4>}
                    </label>
 
-                    <button type="submit" onSubmit={handleSubmit(sibmitChanges)} >rename</button>
+                    <Button type='submit' style='modify'>rename</Button>
                 </form>
             </div>
         </div>

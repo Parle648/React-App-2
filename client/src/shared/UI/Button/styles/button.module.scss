@@ -21,12 +21,13 @@
     border: 1.5px dashed #ccc;
     border-radius: 10px;
     background-color: transparent;
-    margin-left: 25px;
     font-family: "Roboto";
     font-size: 16px;
     transition: 0.35s;
 
-    padding: .3em 3.5em;
+    padding: .8em 3.5em;
+
+    margin-bottom: 12px;
 
     &:hover {
         background-color: azure;
@@ -35,7 +36,6 @@
 
 .delete {
     border-radius: 10px;
-    margin-left: 25px;
     font-family: "Roboto";
     font-size: 16px;
     transition: 0.35s;
@@ -59,6 +59,8 @@
     background-color: rgb(28, 44, 87);
     border: 0;
     border-radius: 5px;
+
+    font-size: 14px;
 
     transition: .35s;
 

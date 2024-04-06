@@ -5,6 +5,7 @@ import createListRequest from './api/createListRequest';
 import { useSelector } from 'react-redux';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import updateList from './helpers/updateLists';
+import Button from '../../shared/UI/Button/Button';
 
 const CreateListFeature = () => {
     const {
@@ -30,9 +31,9 @@ const CreateListFeature = () => {
 
     return (
         <div className={styles.block}>
-            <button className={styles.openFormBtn} onClick={() => setVisible()}>
+            <Button handleFunction={setVisible}>
                 Create List
-            </button> 
+            </Button>
             <form className={`${styles.createListForm} ${visible && styles.formVisible}`} onSubmit={handleSubmit(createList)} >
                <div className={styles.formInnerContainer}>
                     <button className={styles.closeModal} onClick={() => setVisible()}>X</button>

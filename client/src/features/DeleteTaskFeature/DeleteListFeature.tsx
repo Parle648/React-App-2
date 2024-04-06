@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { TaskContext } from '../../entities/TaskCard/context/taskContext';
 import deleteTask from './helpers/deleteTask';
 import useToggle from '../../shared/lib/hooks/useToggle';
+import Button from '../../shared/UI/Button/Button';
 
 const DeleteTaskFeature = () => {
     const taskContext = useContext(TaskContext);
@@ -21,10 +22,10 @@ const DeleteTaskFeature = () => {
                         X
                     </button>
                     You really want to delete this task?
-                    <button className={styles.deleteBtn} onClick={() => {
+                    <Button handleFunction={() => {
                         deleteTask(taskContext?.props.id, taskContext?.props.name);
                         setVisible();
-                        }}>delete</button>
+                    }} style='delete'>delete</Button>
                 </div>
             </div>
         </>
