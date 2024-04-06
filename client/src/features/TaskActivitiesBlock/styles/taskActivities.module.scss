@@ -17,3 +17,14 @@
     font-size: 24px;
     border-radius: 0 10px 0 0 ;
 }
+
+@media (max-width: 850px) {
+    .block {
+        width: auto;
+        position: relative;
+    }
+
+    .header {
+        border-radius: 0;
+    }
+}

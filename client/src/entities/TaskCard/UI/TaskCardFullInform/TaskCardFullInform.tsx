@@ -31,7 +31,9 @@ const TaskCardFullInform = ({visible, children}: {visible: boolean, children: an
                     {taskContext?.props.description}
                 </p>
             </div>
-            {visible && <TaskActivitiesBlock id={taskContext?.props.id} />}
+            <div>
+                {visible && <TaskActivitiesBlock id={taskContext?.props.id} />}
+            </div>
         </div>
     );
 };

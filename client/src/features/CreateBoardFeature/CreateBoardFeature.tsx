@@ -1,6 +1,5 @@
 import useToggle from '../../shared/lib/hooks/useToggle';
 import CreateBoardForm from './UI/CreateBoardForm/CreateBoardForm';
-import createBoardRequest from './api/createBoardRequest';
 import styles from './styles/createBoard.module.scss';
 
 const CreateBoardFeature = () => {
