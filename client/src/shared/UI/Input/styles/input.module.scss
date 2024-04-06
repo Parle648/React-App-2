@@ -1,0 +1,29 @@
+.create {
+    width: auto;
+    height: 30px;
+    padding: 8px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+
+    color: #101010;
+    font-size: 14px;
+    font-family: "Roboto";
+}
+
+.disabled {
+    width: auto;
+    height: 30px;
+    padding: 8px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+
+    background-color: #e2e2e25b;
+
+    color: #101010;
+    font-size: 14px;
+    font-family: "Roboto";
+}

@@ -4,7 +4,6 @@ import TaskListsWidget from '../../widgets/TaskListsWidget/TaskListsWidget';
 import ChooseBoardWidget from '../../widgets/ChooseBoardWidget/ChooseBoardWidget';
 import styles from './styles/main.module.scss';
 import { useSelector } from 'react-redux';
-import Button from '../../shared/UI/Button/Button';
 
 const Main = () => {
     const board = useSelector((state: any) => state.CurrentBoard.value)
@@ -16,7 +15,6 @@ const Main = () => {
                 <TaskboardPanel />
                 <TaskListsWidget />
             </div>}
-            <Button handleFunction={() => console.log('works')} style='modify'>btn</Button>
         </div>
     );
 };

@@ -15,7 +15,6 @@ const Template = args => <Button {...args}></Button>
 export const Create = Template.bind({});
 Create.args = {
     children: 'Create',
-    width: 150,
     type: 'submit',
     style: 'create'
 };
