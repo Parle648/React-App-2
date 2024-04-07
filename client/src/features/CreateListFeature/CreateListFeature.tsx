@@ -32,7 +32,7 @@ const CreateListFeature = () => {
 
     return (
         <div className={styles.block}>
-            <Button handleFunction={setVisible}>
+            <Button handleFunction={setVisible} width={150}>
                 Create List
             </Button>
             <form className={`${styles.createListForm} ${visible && styles.formVisible}`} onSubmit={handleSubmit(createList)} >

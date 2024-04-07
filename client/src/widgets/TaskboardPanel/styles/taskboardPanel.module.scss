@@ -31,5 +31,9 @@
 
     .buttons {
         width: 30%;
+        height: 80px;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 35px;
     }
 }

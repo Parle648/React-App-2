@@ -9,7 +9,7 @@ const AddTaskFeature = ({list_id}: AddTaskProps) => {
 
     return (
         <>
-            <Button handleFunction={setIsVisible} style='dashed' width={290}>
+            <Button handleFunction={setIsVisible} style='dashed' width={267}>
                 + Add new Task
             </Button>
             <AddTaskForm 
