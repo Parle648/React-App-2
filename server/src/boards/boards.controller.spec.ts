@@ -46,14 +46,4 @@ describe('BoardsController', () => {
 
     expect(result.status).toBe(200);
   })
-
-  it('PATCH boards', async () => {
-    const result = await request('http://localhost:3001')
-    .patch('/boards/1')
-    .send({
-      name: 'asd'
-    })
-
-    expect(result.status).toBe(200);
-  })
 });

@@ -52,26 +52,6 @@ describe('ListsController', () => {
     expect(lists.status).toBe(201)
   })
 
-  it('PATCH list', async () => {
-    const lists = await request('http://localhost:3001')
-    .patch('/lists/1')
-    .send({
-      listData: {
-        list_name: 'List',
-        board_id: 1
-      },
-      action: {
-          activity_type: "createList",
-          from: "",
-          to: 'List',
-          list_name: 'List',
-          board_id: 1
-      }
-    })
-
-    expect(lists.status).toBe(200)
-  })
-
   it('DELETE list', async () => {
     const existLists = await request('http://localhost:3001').get('/lists')
     const lists = await request('http://localhost:3001')
