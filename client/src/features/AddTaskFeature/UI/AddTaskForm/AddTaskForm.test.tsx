@@ -53,7 +53,7 @@ describe('Tests for AddTaskForm', () => {
         </Provider>
         );
 
-        const sendBtn = screen.getByTestId('submit-btn');
+        const sendBtn = screen.getByRole('button');
         userEvent.click(sendBtn);
 
         expect(screen.queryByRole('div')).toBeNull();
