@@ -12,9 +12,6 @@ const AddTaskFeature = ({list_id}: AddTaskProps) => {
             <Button handleFunction={setIsVisible} style='dashed' width={290}>
                 + Add new Task
             </Button>
-            {/* <button className={styles.open} onClick={() => setIsVisible()}>
-                + Add new Task
-            </button> */}
             <AddTaskForm 
                 setIsVisible={setIsVisible}
                 visible={isVisible}

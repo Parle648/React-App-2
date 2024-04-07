@@ -12,6 +12,8 @@ const Input = ({style, type, name}: {
     name: string}) => {
     return (
         <input 
+            data-testid='input'
+            data-name={name}
             className={inputStyles[style] || styles.create} 
             type={type ? type : 'text'} 
             />

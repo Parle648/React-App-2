@@ -19,9 +19,11 @@ const AddTaskForm = ({visible, children, list_id, setIsVisible}: TaskFormProps) 
     const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
     function sendTaskData(taskDto: CreteTaskFields) {
-        createTask(taskDto, list_id, currentBoard.id);
-        setIsVisible();
-        reset();
+        createTask(taskDto, list_id, currentBoard.id)
+        .then(() => {
+            setIsVisible();
+            reset();
+        })
     };
 
     return (
@@ -33,7 +35,7 @@ const AddTaskForm = ({visible, children, list_id, setIsVisible}: TaskFormProps) 
                 <DeadlineInput register={register} errors={errors}/>
                 <PriorityInput register={register} errors={errors}/>
                 <DescriptionInput register={register} errors={errors}/>
-                <button type="submit">+ Create</button>
+                <button type="submit" data-testid='submit-btn' >+ Create</button>
             </form>
         </div>
     );

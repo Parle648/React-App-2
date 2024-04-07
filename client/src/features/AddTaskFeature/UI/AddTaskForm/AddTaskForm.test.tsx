@@ -28,4 +28,34 @@ describe('Tests for AddTaskForm', () => {
 
         expect(screen.getByText(/some text/i)).toBeInTheDocument();
     })
+
+    it('AddTaskForm clsoe btn logic', () => {
+        render(
+        <Provider store={store}>
+            <AddTaskForm visible={false} list_id={1} setIsVisible={setIsVisible} >
+                'some text'
+            </AddTaskForm>
+        </Provider>
+        );
+
+        const close = screen.getByRole('button');
+        userEvent.click(close);
+
+        expect(screen.queryByRole('div')).toBeNull();
+    })
+
+    it('AddTaskForm send request successfully', () => {
+        render(
+        <Provider store={store}>
+            <AddTaskForm visible={false} list_id={1} setIsVisible={setIsVisible} >
+                'some text'
+            </AddTaskForm>
+        </Provider>
+        );
+
+        const sendBtn = screen.getByTestId('submit-btn');
+        userEvent.click(sendBtn);
+
+        expect(screen.queryByRole('div')).toBeNull();
+    })
 })
