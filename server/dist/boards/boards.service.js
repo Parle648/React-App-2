@@ -38,8 +38,28 @@ let BoardsService = class BoardsService {
         this.logger.log(`User get all boards`);
         return { status: 200, boards };
     }
-    update(id, updateBoardDto) {
-        this.logger.log(`User update board`);
+    async update(id, updateBoardDto) {
+        try {
+            const updateBoard = await this.databaseService.boards.update({
+                where: {
+                    id: +id
+                },
+                data: {
+                    ...updateBoardDto
+                }
+            });
+            const boards = await this.databaseService.boards.findMany();
+            this.logger.log(`User update board which id = ${id}`);
+            return { status: 200, boards };
+        }
+        catch (error) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.FORBIDDEN,
+                error: error,
+            }, common_1.HttpStatus.FORBIDDEN, {
+                cause: error
+            });
+        }
         return `This action updates a #${id} board`;
     }
     async remove(id) {
@@ -59,7 +79,12 @@ let BoardsService = class BoardsService {
             return { status: 200, boards };
         }
         catch (error) {
-            return { status: 404, error };
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.FORBIDDEN,
+                error: error,
+            }, common_1.HttpStatus.FORBIDDEN, {
+                cause: error
+            });
         }
     }
 };

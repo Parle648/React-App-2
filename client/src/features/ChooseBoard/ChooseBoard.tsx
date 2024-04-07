@@ -6,6 +6,7 @@ import updateBoards from './helpers/updateBoards';
 import updateCurrentBoard from './helpers/updateCurrentBoard';
 import ChangeModal from '../../entities/CgangeModal/ChangeModal';
 import DeleteBoard from '../DeleteBoard/DeleteBoard';
+import ChangeBoardName from '../ChangeBoardName/ChangeBoardName';
 
 const ChooseBoard = () => {
     const boards = useSelector((state: any) => state.Boards.value);
@@ -27,6 +28,7 @@ const ChooseBoard = () => {
                         {board.name} 
                         <ChangeModal>
                             <DeleteBoard board_id={board.id} current_board={currentBoard.name} current_board_id={currentBoard.id} />
+                            <ChangeBoardName id={board.id} />
                         </ChangeModal> 
                     </h2>
             })}

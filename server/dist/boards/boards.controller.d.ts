@@ -21,17 +21,18 @@ export declare class BoardsController {
             name: string;
         }[];
     }>;
-    update(id: string, updateBoardDto: any): string;
+    update(id: string, updateBoardDto: any): Promise<string | {
+        status: number;
+        boards: {
+            id: number;
+            name: string;
+        }[];
+    }>;
     remove(id: string): Promise<{
         status: number;
         boards: {
             id: number;
             name: string;
         }[];
-        error?: undefined;
-    } | {
-        status: number;
-        error: any;
-        boards?: undefined;
     }>;
 }

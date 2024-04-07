@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
@@ -31,8 +31,30 @@ export class BoardsService {
     return { status: 200, boards };
   }
 
-  update(id: number, updateBoardDto: any) {
-    this.logger.log(`User update board`)
+  async update(id: number, updateBoardDto: any) {
+    try {
+      const updateBoard = await this.databaseService.boards.update({
+        where: {
+          id: +id
+        },
+        data: {
+          ...updateBoardDto
+        }
+      })
+
+      const boards = await this.databaseService.boards.findMany();
+
+      this.logger.log(`User update board which id = ${id}`)
+
+      return {status: 200, boards}
+    } catch (error) {
+      throw new HttpException({
+        status: HttpStatus.FORBIDDEN,
+        error: error,
+      }, HttpStatus.FORBIDDEN, {
+        cause: error
+      });
+    }
     return `This action updates a #${id} board`;
   }
 
@@ -56,7 +78,12 @@ export class BoardsService {
       
       return { status: 200, boards };
     } catch (error) {
-      return {status: 404, error}
+      throw new HttpException({
+        status: HttpStatus.FORBIDDEN,
+        error: error,
+      }, HttpStatus.FORBIDDEN, {
+        cause: error
+      });
     }
   }
 }

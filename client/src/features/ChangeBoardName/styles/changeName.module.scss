@@ -1,0 +1,22 @@
+.open {
+    display: flex;
+    align-items: center;
+    color: #101010;
+    margin-left: 5px;
+}
+
+.plus {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+}
+
+.close {
+    background-color: transparent;
+    border-radius: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    color: #101010;
+}

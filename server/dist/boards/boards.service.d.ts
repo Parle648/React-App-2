@@ -23,17 +23,18 @@ export declare class BoardsService {
             name: string;
         }[];
     }>;
-    update(id: number, updateBoardDto: any): string;
+    update(id: number, updateBoardDto: any): Promise<string | {
+        status: number;
+        boards: {
+            id: number;
+            name: string;
+        }[];
+    }>;
     remove(id: number): Promise<{
         status: number;
         boards: {
             id: number;
             name: string;
         }[];
-        error?: undefined;
-    } | {
-        status: number;
-        error: any;
-        boards?: undefined;
     }>;
 }
