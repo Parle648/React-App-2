@@ -34,7 +34,7 @@ export class TasksService {
 
       const tasks = await this.databaseService.tasks.findMany()
 
-      return { status: 200, tasks }
+      return { status: 201, tasks }
     } catch (error) {
       this.logger.debug(`User failed to create task - "${action.task_name}". DTO is ${JSON.stringify(createTasksDto)}`)
       
@@ -147,6 +147,7 @@ export class TasksService {
       await this.databaseService.tasks.delete({
         where: { id },
       })
+      
       this.logger.log(`User delete task which id = ${id}`)
 
       await this.databaseService.tasksActivities.create({
