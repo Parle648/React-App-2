@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import styles from './styles/createBoardForm.module.scss';
 import createBoardRequest from '../../api/createBoardRequest';
 import updateBoards from '../../helpers/createBoard';
+import Input from '../../../../shared/UI/Input/Input';
 
 type CreateBoardFields = { 
     name: string
@@ -32,9 +33,12 @@ const CreateBoardForm = ({setIsVisible}: {setIsVisible: Function}) => {
             <form className={styles.form} onSubmit={handleSubmit(createBoard)} >
                 <button className={styles.close} onClick={() => setIsVisible()}>X</button>
                 <h2 className={styles.title}>Enter board name</h2>
-                <input className={styles.input} {...register('name', {
+                <Input style='create' name='name' register={{...register('name', {
                     required: 'Enter board name',
-                })} />
+                })}} />
+                {/* <input className={styles.input} {...register('name', {
+                    required: 'Enter board name',
+                })} /> */}
                 <span>{errors.name && `${errors.name.message}`}</span>
                 <button className={styles.sendBtn} type="submit">Отправить запрос</button>
             </form>

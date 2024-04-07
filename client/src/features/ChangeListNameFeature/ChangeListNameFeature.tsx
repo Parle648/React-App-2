@@ -6,6 +6,7 @@ import renameList from './helpers/renameList';
 import CurrentBoard from '../../shared/lib/slices/CurrentBoard';
 import { useSelector } from 'react-redux';
 import Button from '../../shared/UI/Button/Button';
+import Input from '../../shared/UI/Input/Input';
 
 const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false);
@@ -37,13 +38,13 @@ const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string})
                     <h2 className={styles.inputTitle}>Enter new name for list</h2>
 
                    <label className={styles.label}>
-                        <input type="text" {...register('list_name', {
+                        <Input style='create' name='list_name' register={{...register('list_name', {
                             required: 'enter new name for list',
                             pattern: {
                                 value: /^[a-zA-Z0-9\s_-]+$/,
                                 message: 'List name should be write using english laguage'
                             }
-                        })} />
+                        })}}/>
                         {errors.list_name && <h4 className={styles.errorMessage}>{errors.list_name.message}</h4>}
                    </label>
 

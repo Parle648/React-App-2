@@ -6,15 +6,17 @@ const inputStyles: {[key: string]: any} = {
     disabled: styles.disabled,
 }
 
-const Input = ({style, type, name}: {
+const Input = ({style, type, name, register}: {
     style: 'create' | 'disabled', 
     type?: 'date' | undefined, 
+    register?: any,
     name: string}) => {
     return (
         <input 
             data-testid='input'
             data-name={name}
             className={inputStyles[style] || styles.create} 
+            {...!!register && register}
             type={type ? type : 'text'} 
             />
     );
