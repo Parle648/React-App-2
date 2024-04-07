@@ -23,6 +23,7 @@ let ListsService = class ListsService {
         const createList = await this.dataBaseService.lists.create({
             data: {
                 list_name: listData.list_name,
+                board_id: listData.board_id,
                 listActivities: {
                     create: [
                         action
@@ -35,9 +36,18 @@ let ListsService = class ListsService {
         });
         return createList;
     }
-    async findAll() {
+    async findAll(query) {
         this.logger.log(`User get all lists`);
-        return this.dataBaseService.lists.findMany();
+        if (+query.board_id) {
+            return this.dataBaseService.lists.findMany({
+                where: {
+                    board_id: +query.board_id
+                }
+            });
+        }
+        else {
+            return this.dataBaseService.lists.findMany();
+        }
     }
     async findOne(id) {
         return this.dataBaseService.lists.findUnique({
@@ -65,17 +75,22 @@ let ListsService = class ListsService {
                 listActivities: true
             }
         });
-        const lists = await this.dataBaseService.lists.findMany();
+        const lists = await this.dataBaseService.lists.findMany({
+            where: {
+                board_id: listData.board_id
+            }
+        });
         return { status: 200, lists: lists };
     }
     async remove(id, deleteListDto) {
         this.logger.log(`User delete list which id = ${id}`);
         const activitiy = this.dataBaseService.listActivities.create({
             data: {
-                "activity_type": "deleteList",
-                "list_name": deleteListDto.list_name,
-                "from": "",
-                "to": "Important",
+                activity_type: "deleteList",
+                list_name: deleteListDto.list_name,
+                from: "",
+                to: "Important",
+                board_id: deleteListDto.board_id
             }
         });
         const deletelist = this.dataBaseService.lists.delete({

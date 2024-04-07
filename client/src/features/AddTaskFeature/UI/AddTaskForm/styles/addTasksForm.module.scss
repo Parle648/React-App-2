@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 500px;
+    height: auto;
     padding: 64px 24px;
     background-color: rgb(219, 237, 252);
     position: fixed;
@@ -29,4 +29,10 @@
 
 .visible {
     display: flex;
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 80%;
+    }
 }

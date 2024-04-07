@@ -17,13 +17,10 @@
     z-index: 9px;
     top: 0;
     right: 0px;
-
-    overflow: scroll;
 }
 
 .header {
-    height: 30px;
-    padding: 24px;
+    padding: 7px;
     background-color: rgb(200, 209, 255);
     color: #3f3f3f;
     font-family: "Roboto";
@@ -35,4 +32,10 @@ h2 {
     color: #949393;
     padding-left: 24px;
     font-family: "Roboto";
+}
+
+@media (max-width: 550px) {
+    .innerBlock {
+        width: 92%;
+    }
 }

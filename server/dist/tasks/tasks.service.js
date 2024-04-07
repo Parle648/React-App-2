@@ -35,7 +35,7 @@ let TasksService = class TasksService {
             });
             this.logger.log(`User create task with name - "${action.task_name}". DTO is ${JSON.stringify(createTasksDto)}`);
             const tasks = await this.databaseService.tasks.findMany();
-            return { status: 200, tasks };
+            return { status: 201, tasks };
         }
         catch (error) {
             this.logger.debug(`User failed to create task - "${action.task_name}". DTO is ${JSON.stringify(createTasksDto)}`);
@@ -139,11 +139,12 @@ let TasksService = class TasksService {
             this.logger.log(`User delete task which id = ${id}`);
             await this.databaseService.tasksActivities.create({
                 data: {
-                    "activity_type": "deleteTask",
-                    "task_name": taskDto.task_name,
-                    "from": "",
-                    "to": taskDto.task_name,
-                    task_property: ''
+                    activity_type: "deleteTask",
+                    task_name: taskDto.task_name,
+                    from: "",
+                    to: taskDto.task_name,
+                    task_property: '',
+                    board_id: 1
                 }
             });
             return { status: 200 };

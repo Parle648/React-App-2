@@ -1,7 +1,8 @@
 import styles from './styles/priority.module.scss';
+import PropTypes from 'prop-types';
 
 type priorityProps = {
-    priority: string,
+    priority: 'low' | 'middle' | 'top'
 }
 
 const PriorityBlock = ({priority}: priorityProps) => {
@@ -11,5 +12,10 @@ const PriorityBlock = ({priority}: priorityProps) => {
         </div>
     );
 };
+
+PriorityBlock.propTypes = {
+    priority: PropTypes.oneOf(['low', 'middle', 'top'])
+};
+
 
 export default PriorityBlock;

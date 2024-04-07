@@ -13,9 +13,10 @@ export declare class ActivitiesService {
         to: string;
         time: Date;
         task_property: string;
+        board_id: number;
         task_id: number;
     }>;
-    findAll(): Promise<[{
+    findAll(board_id: number): Promise<[{
         id: number;
         activity_type: string;
         task_name: string;
@@ -23,6 +24,7 @@ export declare class ActivitiesService {
         to: string;
         time: Date;
         task_property: string;
+        board_id: number;
         task_id: number;
     }[], {
         id: number;
@@ -30,6 +32,7 @@ export declare class ActivitiesService {
         list_name: string;
         from: string;
         to: string;
+        board_id: number;
         time: Date;
         list_id: number;
     }[]]>;
@@ -41,6 +44,7 @@ export declare class ActivitiesService {
         to: string;
         time: Date;
         task_property: string;
+        board_id: number;
         task_id: number;
     }[]>;
     update(id: number, updateActivityDto: Prisma.TasksActivitiesCreateInput): Promise<{
@@ -51,6 +55,7 @@ export declare class ActivitiesService {
         to: string;
         time: Date;
         task_property: string;
+        board_id: number;
         task_id: number;
     }>;
     remove(id: number): Prisma.Prisma__TasksActivitiesClient<{
@@ -61,6 +66,7 @@ export declare class ActivitiesService {
         to: string;
         time: Date;
         task_property: string;
+        board_id: number;
         task_id: number;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
 }

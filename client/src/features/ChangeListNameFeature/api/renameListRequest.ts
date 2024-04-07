@@ -14,7 +14,8 @@ export default function renameListRequest(data: any) {
                         activity_type: "renameList",
                         from: data.old_name,
                         to: data.list_name,
-                        list_name: data.list_name
+                        list_name: data.list_name,
+                        board_id: data.board_id
                     }
                 })
             }))

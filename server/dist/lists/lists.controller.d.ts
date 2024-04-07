@@ -9,22 +9,26 @@ export declare class ListsController {
             list_name: string;
             from: string;
             to: string;
+            board_id: number;
             time: Date;
             list_id: number;
         }[];
     } & {
         id: number;
         list_name: string;
+        board_id: number;
     }>;
-    findAll(): Promise<{
+    findAll(query: any): Promise<{
         id: number;
         list_name: string;
+        board_id: number;
     }[]>;
     update(id: string, updateListDto: any): Promise<{
         status: number;
         lists: {
             id: number;
             list_name: string;
+            board_id: number;
         }[];
     }>;
     remove(id: string, deleteListDto: any): Promise<[{
@@ -33,10 +37,12 @@ export declare class ListsController {
         list_name: string;
         from: string;
         to: string;
+        board_id: number;
         time: Date;
         list_id: number;
     }, {
         id: number;
         list_name: string;
+        board_id: number;
     }]>;
 }

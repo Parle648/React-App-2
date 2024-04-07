@@ -2,11 +2,11 @@ import styles from './styles/taskCart.module.scss';
 import { TaskCartProps } from './types/taskCartProps';
 import ChangeModal from '../CgangeModal/ChangeModal';
 import DeleteTaskFeature from '../../features/DeleteTaskFeature/DeleteListFeature';
-import ChangeTaskInfo from '../../features/ChangeTaskInfo/ChangeTaskInfo';
 import TaskCardPreview from './UI/TaskCardPreview/TaskCardPreview';
 import TaskCardFullInform from './UI/TaskCardFullInform/TaskCardFullInform';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import { TaskContext } from './context/taskContext';
+import ChangeTaskInfo from '../../features/ChangeTaskInfo/ChangeTaskInfo';
 
 const TaskCart = (taskProperties: TaskCartProps) => {
     const [isVisible, toggleVisible] = useToggle(false);
@@ -16,7 +16,7 @@ const TaskCart = (taskProperties: TaskCartProps) => {
             props: taskProperties
         }}>
             <div className={styles.cartWrapper}>
-                <div className={styles.cart} onClick={() => toggleVisible()}>
+                <div className={styles.cart} id='openTaskBtn' onClick={() => toggleVisible()}>
                     <TaskCardPreview />
                 </div>
                 <div >
@@ -26,7 +26,7 @@ const TaskCart = (taskProperties: TaskCartProps) => {
                     </ChangeModal>
                     <div className={`${styles.modalContainer} ${isVisible && styles.visible}`}>
                         <TaskCardFullInform visible={isVisible}> 
-                            <button onClick={() => toggleVisible()}>X</button>
+                            <button id='closeTaskModal' onClick={() => toggleVisible()}>X</button>
                         </TaskCardFullInform>
                     </div>
                 </div>

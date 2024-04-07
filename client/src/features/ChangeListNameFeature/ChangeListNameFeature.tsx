@@ -3,6 +3,10 @@ import { useForm } from 'react-hook-form';
 import plus from '../../shared/assets/img/plus.png';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import renameList from './helpers/renameList';
+import CurrentBoard from '../../shared/lib/slices/CurrentBoard';
+import { useSelector } from 'react-redux';
+import Button from '../../shared/UI/Button/Button';
+import Input from '../../shared/UI/Input/Input';
 
 const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false);
@@ -16,8 +20,10 @@ const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string})
         reset
     } = useForm<{list_name: string}>()
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
+
     function sibmitChanges(data: any) {
-        renameList(id, list_name, data.list_name)
+        renameList(id, list_name, data.list_name, currentBoard.id)
         reset();
         setVisible();
     }
@@ -32,17 +38,17 @@ const ChangeListNameFeature = ({id, list_name}: {id: number, list_name: string})
                     <h2 className={styles.inputTitle}>Enter new name for list</h2>
 
                    <label className={styles.label}>
-                        <input type="text" {...register('list_name', {
+                        <Input style='create' name='list_name' register={{...register('list_name', {
                             required: 'enter new name for list',
                             pattern: {
                                 value: /^[a-zA-Z0-9\s_-]+$/,
                                 message: 'List name should be write using english laguage'
                             }
-                        })} />
+                        })}}/>
                         {errors.list_name && <h4 className={styles.errorMessage}>{errors.list_name.message}</h4>}
                    </label>
 
-                    <button type="submit" onSubmit={handleSubmit(sibmitChanges)} >rename</button>
+                    <Button type='submit' style='modify'>rename</Button>
                 </form>
             </div>
         </div>

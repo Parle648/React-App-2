@@ -6,9 +6,10 @@ import { ActivitiesModule } from './activities/activities.module';
 import { TasksModule } from './tasks/tasks.module';
 import { ListsModule } from './lists/lists.module';
 import { CorsMiddleware } from './middlewares/cors.middlewares';
+import { BoardsModule } from './boards/boards.module';
 
 @Module({
-  imports: [DatabaseModule, ActivitiesModule, TasksModule, ListsModule],
+  imports: [DatabaseModule, ActivitiesModule, TasksModule, ListsModule, BoardsModule],
   controllers: [AppController],
   providers: [AppService],
 })

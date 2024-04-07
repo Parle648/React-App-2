@@ -1,5 +1,5 @@
 .open {
-    width: 380px;
+    width: 290px;
     height: 50px;
     margin-bottom: 25px;
 
@@ -29,4 +29,14 @@
     position: absolute;
     top: 12px;
     right: 12px;
+
+    font-size: 20px;
+    background-color: transparent;
+    border: 0;
+}
+
+@media (max-width: 400px) {
+    .open {
+        width: 267px;
+    }
 }

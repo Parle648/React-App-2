@@ -1,5 +1,5 @@
 .block {
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
     overflow: scroll;
 
@@ -8,6 +8,6 @@
 
 @media (max-width: 1440px) {
     .block {
-        width: 92%;
+        width: 100%;
     }
 }

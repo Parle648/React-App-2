@@ -20,8 +20,8 @@ let ActivitiesController = class ActivitiesController {
     constructor(activitiesService) {
         this.activitiesService = activitiesService;
     }
-    findAll() {
-        return this.activitiesService.findAll();
+    findAll(board_id) {
+        return this.activitiesService.findAll(board_id);
     }
     findOne(id) {
         return this.activitiesService.findOne(+id);
@@ -30,8 +30,9 @@ let ActivitiesController = class ActivitiesController {
 exports.ActivitiesController = ActivitiesController;
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('board_id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ActivitiesController.prototype, "findAll", null);
 __decorate([

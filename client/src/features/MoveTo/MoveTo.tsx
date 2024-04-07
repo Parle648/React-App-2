@@ -15,6 +15,8 @@ export const MoveTo = ({ list_name, task_id, task_name }: MoveToProps) => {
         setVisible(!visible);
     }
 
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
+
     function movetask(event: any) {
         event.stopPropagation();
         if (event.target.innerText !== list_name) {
@@ -23,7 +25,8 @@ export const MoveTo = ({ list_name, task_id, task_name }: MoveToProps) => {
                 new_list_name: event.target.innerText,
                 old_list_name: list_name,
                 list_id: event.target.dataset.id,
-                task_name: task_name
+                task_name: task_name,
+                board_id: currentBoard.id
             })
             .then((data) => moveTask(data.tasks));
         };

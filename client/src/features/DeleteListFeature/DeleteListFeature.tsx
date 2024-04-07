@@ -3,13 +3,15 @@ import styles from './styles/deleteList.module.scss';
 import { useSelector } from 'react-redux';
 import useToggle from '../../shared/lib/hooks/useToggle';
 import deleteList from './helpers/deleteList';
+import Button from '../../shared/UI/Button/Button';
 
 const DeleteListFeature = ({list_id, list_name}: {list_id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false)
     const lists = useSelector((state: any) => state.Lists.value);
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
     function deleteListFunction() {
-        deleteList(list_id, list_name, lists)
+        deleteList(list_id, list_name, lists, currentBoard.id)
         .then(() => setVisible())
     }
 
@@ -24,7 +26,7 @@ const DeleteListFeature = ({list_id, list_name}: {list_id: number, list_name: st
                         X
                     </button>
                     You really want to delete this list?
-                    <button className={styles.deleteBtn} onClick={deleteListFunction}>delete</button>
+                    <Button handleFunction={deleteListFunction} style='delete'>delete</Button>
                 </div>
             </div>
         </>

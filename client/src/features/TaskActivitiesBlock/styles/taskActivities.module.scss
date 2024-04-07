@@ -1,5 +1,5 @@
 .block {
-    width: 500px;
+    width: 400px;
     height: 100%;
     background-color: aliceblue;
     position: absolute;
@@ -7,16 +7,24 @@
     right: 0;
     z-index: 0;
     border-radius: 0px 10px 10px 0px;
-
-    overflow: scroll;
 }
 
 .header {
-    height: 30px;
-    padding: 24px;
+    padding: 6px;
     background-color: rgb(200, 209, 255);
     color: #3f3f3f;
     font-family: "Roboto";
     font-size: 24px;
     border-radius: 0 10px 0 0 ;
+}
+
+@media (max-width: 850px) {
+    .block {
+        width: auto;
+        position: relative;
+    }
+
+    .header {
+        border-radius: 0;
+    }
 }

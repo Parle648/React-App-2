@@ -17,21 +17,23 @@ const TaskCardFullInform = ({visible, children}: {visible: boolean, children: an
                     {children}
                     <ChangeTaskInfo />
                 </div>
-                <h2>Task name:</h2>
-                <h2 className={styles.taskName}>{taskContext?.props.name}</h2>
-                <h2>deadline:</h2> 
-                <p className={styles.deadline}>
-                    <img src={calendar} alt="calendar-icon" />
+                <h2 className='mb-2 text-slate-950 text-lg'>Task name:</h2>
+                <h2 className=' mb-6 text-slate-700'>{taskContext?.props.name}</h2>
+                <h2 className='mb-2 text-slate-950 text-lg' >deadline:</h2> 
+                <p className='flex items-center mb-6 text-slate-700 '>
+                    <img className='mr-4' src={calendar} alt="calendar-icon" />
                     {parsedDeadline}
                 </p>
-                <h2>priority</h2>
+                <h2 className='mb-2 text-slate-950 text-lg'>priority</h2>
                 <PriorityBlock priority={taskContext?.props.priority} />
-                <h2>description: </h2>
-                <p className={styles.description}>
+                <h2 className='mb-2 text-slate-950 text-lg'>description: </h2>
+                <p className=' text-slate-700'>
                     {taskContext?.props.description}
                 </p>
             </div>
-            {visible && <TaskActivitiesBlock id={taskContext?.props.id} />}
+            <div>
+                {visible && <TaskActivitiesBlock id={taskContext?.props.id} />}
+            </div>
         </div>
     );
 };

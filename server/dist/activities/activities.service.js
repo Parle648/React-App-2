@@ -20,10 +20,18 @@ let ActivitiesService = class ActivitiesService {
     async create(createActivityDto) {
         return this.databaseService.tasksActivities.create({ data: createActivityDto });
     }
-    findAll() {
+    findAll(board_id) {
         this.logger.log(`User get all activities`);
-        const tasksActivities = this.databaseService.tasksActivities.findMany();
-        const lsitsActivities = this.databaseService.listActivities.findMany();
+        const tasksActivities = this.databaseService.tasksActivities.findMany({
+            where: {
+                board_id: +board_id
+            }
+        });
+        const lsitsActivities = this.databaseService.listActivities.findMany({
+            where: {
+                board_id: +board_id
+            }
+        });
         return this.databaseService.$transaction([tasksActivities, lsitsActivities]);
     }
     async findOne(id) {

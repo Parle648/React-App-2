@@ -1,9 +1,10 @@
-export default function changeTaskProperties({id, name, property_name, property_old, property_new}: {
+export default function changeTaskProperties({id, name, property_name, property_old, property_new, board_id}: {
     id: number,
     name: string
     property_name: string,
     property_old: string | Date,
-    property_new: string | Date
+    property_new: string | Date,
+    board_id: number
 }) {
     return new Promise((resolve, reject) => {
         try {
@@ -21,7 +22,8 @@ export default function changeTaskProperties({id, name, property_name, property_
                         from: property_old, 
                         to: property_new, 
                         task_name: name,
-                        task_property: property_name
+                        task_property: property_name,
+                        board_id: board_id
                     }
                 })
             }))
