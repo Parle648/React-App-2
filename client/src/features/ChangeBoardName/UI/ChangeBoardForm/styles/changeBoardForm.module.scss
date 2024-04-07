@@ -14,3 +14,9 @@
 
     position: relative;
 }
+
+@media (max-width: 550px) {
+    .form {
+        width: 80%;
+    }
+}
