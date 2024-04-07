@@ -27,11 +27,12 @@ export class BoardsService {
 
   async findAll() {
     const boards = await this.databaseService.boards.findMany()
-
+    this.logger.log(`User get all boards`)
     return { status: 200, boards };
   }
 
   update(id: number, updateBoardDto: any) {
+    this.logger.log(`User update board`)
     return `This action updates a #${id} board`;
   }
 
