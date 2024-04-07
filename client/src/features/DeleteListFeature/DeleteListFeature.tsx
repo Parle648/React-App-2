@@ -8,9 +8,10 @@ import Button from '../../shared/UI/Button/Button';
 const DeleteListFeature = ({list_id, list_name}: {list_id: number, list_name: string}) => {
     const [visible, setVisible] = useToggle(false)
     const lists = useSelector((state: any) => state.Lists.value);
+    const currentBoard = useSelector((state: any) => state.CurrentBoard.value)
 
     function deleteListFunction() {
-        deleteList(list_id, list_name, lists)
+        deleteList(list_id, list_name, lists, currentBoard.id)
         .then(() => setVisible())
     }
 

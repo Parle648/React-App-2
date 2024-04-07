@@ -75,18 +75,22 @@ let ListsService = class ListsService {
                 listActivities: true
             }
         });
-        const lists = await this.dataBaseService.lists.findMany();
+        const lists = await this.dataBaseService.lists.findMany({
+            where: {
+                board_id: listData.board_id
+            }
+        });
         return { status: 200, lists: lists };
     }
     async remove(id, deleteListDto) {
         this.logger.log(`User delete list which id = ${id}`);
         const activitiy = this.dataBaseService.listActivities.create({
             data: {
-                "activity_type": "deleteList",
-                "list_name": deleteListDto.list_name,
-                "from": "",
-                "to": "Important",
-                board_id: 1
+                activity_type: "deleteList",
+                list_name: deleteListDto.list_name,
+                from: "",
+                to: "Important",
+                board_id: deleteListDto.board_id
             }
         });
         const deletelist = this.dataBaseService.lists.delete({

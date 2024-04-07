@@ -49,6 +49,11 @@ let BoardsService = class BoardsService {
                     id: +id
                 }
             });
+            const lists = await this.databaseService.lists.deleteMany({
+                where: {
+                    board_id: +id
+                }
+            });
             const boards = await this.databaseService.boards.findMany();
             this.logger.log(`User delete board with id=${id}`);
             return { status: 200, boards };
